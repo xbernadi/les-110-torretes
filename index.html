@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les 111 Torretes — 3 mockups</title>
+  <meta name="description" content="Tres propostes visuals per seguir 111 pujades a la Torre Griminella.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101312'/%3E%3Cpath d='M12 48 30 17l8 14 5-8 10 25Z' fill='%23ff5a36'/%3E%3Ccircle cx='32' cy='14' r='4' fill='%23f0efe9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="bosc">
+  <div class="topbar">
+    <a class="brand" href="#top" aria-label="Les 111 Torretes, inici"><span class="brand-mark">▲</span><span>LES 111 TORRETES</span></a>
+    <div class="theme-switcher" role="tablist" aria-label="Tria un mockup">
+      <button class="theme-btn active" data-theme="bosc" role="tab" aria-selected="true">01 Graella</button>
+      <button class="theme-btn" data-theme="trail" role="tab" aria-selected="false">02 Trail</button>
+      <button class="theme-btn" data-theme="postals" role="tab" aria-selected="false">03 Postals</button>
+    </div>
+    <button class="add-btn" id="openAdd">+ Nova pujada</button>
+  </div>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Martorell · 2026</p>
+        <h1 id="page-title"><span class="theme-title">Un any.<br>Una muntanya.</span><br><em>111 vegades.</em></h1>
+        <p class="intro">Del carrer de Dalt a la Torre Griminella. Una hora per sortir de casa, tocar el cim i tornar diferent.</p>
+        <div class="stats" aria-label="Progrés del repte">
+          <div><strong id="doneCount">8</strong><span>pujades</span></div>
+          <div><strong id="remainingCount">103</strong><span>per fer</span></div>
+          <div><strong>7%</strong><span>del repte</span></div>
+        </div>
+      </div>
+      <figure class="route-card">
+        <img src="assets/ruta-torretes.png" alt="Mapa de la ruta des del carrer de Dalt fins a la Serra de les Torretes">
+        <figcaption><span>↗ Ruta habitual</span><strong>~ 1 h · anada i tornada</strong></figcaption>
+      </figure>
+    </section>
+
+    <section class="tracker" aria-labelledby="tracker-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" id="viewLabel">Mockup 01 · Graella Trail</p>
+          <h2 id="tracker-title">Cada pujada deixa una petjada.</h2>
+        </div>
+        <div class="legend"><span><i class="done-dot"></i> Feta</span><span><i class="empty-dot"></i> Pendent</span></div>
+      </div>
+
+      <div id="boscView" class="view active-view">
+        <div class="summit-grid" id="summitGrid"></div>
+        <article class="final-summit">
+          <span class="final-number">111</span>
+          <div><small>EL CIM DE L'ANY</small><h3>L’última pujada serà una festa.</h3></div>
+          <span class="lock">⌁</span>
+        </article>
+      </div>
+
+      <div id="trailView" class="view">
+        <div class="trail-layout">
+          <aside class="trail-score"><span>PROGRÉS</span><strong>008<small>/111</small></strong><div class="altitude-line"></div><p>8 hores fora de casa<br>aprox. 2.960 m acumulats</p></aside>
+          <div class="logbook" id="logbook"></div>
+        </div>
+      </div>
+
+      <div id="postalsView" class="view">
+        <div class="postcard-grid" id="postcardGrid"></div>
+        <div class="postcard-empty"><span>09</span><p>La pròxima postal<br>encara no existeix.</p><button id="postcardAdd">Afegir-la →</button></div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <p class="eyebrow">Sense base de dades</p>
+      <h2>Un repositori és suficient.</h2>
+      <div class="steps">
+        <div><span>01</span><h3>Puges la foto</h3><p>Des del web de GitHub, arrossegues la imatge a la carpeta <code>fotos/</code>.</p></div>
+        <div><span>02</span><h3>Afegeixes l’entrada</h3><p>Editem un únic fitxer <code>pujades.json</code> amb data, foto i comentari.</p></div>
+        <div><span>03</span><h3>La web s’actualitza</h3><p>GitHub Pages publica el canvi automàticament en un parell de minuts.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="addDialog">
+    <form method="dialog" id="addForm">
+      <button class="dialog-close" value="cancel" aria-label="Tancar">×</button>
+      <p class="eyebrow">Prova del formulari</p>
+      <h2>Nova pujada</h2>
+      <label>Data<input required type="date" name="date"></label>
+      <label>Comentari<textarea required name="comment" rows="3" placeholder="Com ha anat avui?"></textarea></label>
+      <label>Foto<input type="file" name="photo" accept="image/*"></label>
+      <p class="form-note">En la versió sense base de dades, aquest formulari prepararia l’entrada i la foto per afegir-les a GitHub.</p>
+      <button class="submit-demo" value="default">Veure com quedaria</button>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status">Demo preparada — no s’ha desat cap dada.</div>
+  <script src="app.js"></script>
+</body>
+</html>
