@@ -20,35 +20,14 @@ for(let i=1;i<=110;i++){
   if(e)el.title=e.comment;
   grid.append(el);
 }
-const logbook=document.querySelector('#logbook');
-logbook.replaceChildren();
-entries.slice().reverse().slice(0,6).forEach((e,idx)=>{
-  const n=entries.length-idx;
-  logbook.insertAdjacentHTML('beforeend',`<article class="log-entry"><span class="num">${String(n).padStart(3,'0')}</span><img src="${e.photo||map}" alt=""><div><time>${e.date}</time><p>${e.comment}</p></div></article>`)
-});
-const postcardGrid=document.querySelector('#postcardGrid');
-postcardGrid.replaceChildren();
-entries.forEach((e,i)=>postcardGrid.insertAdjacentHTML('beforeend',`<article class="postcard"><img src="${e.photo||map}" alt="Fotografia de la pujada ${i+1}" style="object-position:${e.pos||'50% 50%'}"><div class="post-info"><time>№ ${String(i+1).padStart(3,'0')} · ${e.date}</time><p>${e.comment}</p></div></article>`));
 document.querySelector('#doneCount').textContent=entries.length;
 document.querySelector('#remainingCount').textContent=111-entries.length;
 }
 
 fetch('data/pujades.json').then(r=>r.ok?r.json():Promise.reject()).then(render).catch(()=>render(fallbackEntries));
 
-const labels={bosc:['Mockup 01 · Graella Trail','Un any.<br>Una muntanya.'],trail:['Mockup 02 · Quadern de trail','111 COPS.<br>SENSE DRECERES.'],postals:['Mockup 03 · Àlbum de postals','Un paisatge.<br>111 records.']};
-document.querySelectorAll('.theme-btn').forEach(btn=>btn.addEventListener('click',()=>{
-  const theme=btn.dataset.theme;
-  document.body.dataset.theme=theme;
-  document.querySelectorAll('.theme-btn').forEach(b=>{b.classList.toggle('active',b===btn);b.setAttribute('aria-selected',b===btn)});
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active-view'));
-  document.querySelector(`#${theme}View`).classList.add('active-view');
-  document.querySelector('#viewLabel').textContent=labels[theme][0];
-  document.querySelector('.theme-title').innerHTML=labels[theme][1];
-}));
-
 const dialog=document.querySelector('#addDialog');
 document.querySelector('#openAdd').addEventListener('click',()=>dialog.showModal());
-document.querySelector('#postcardAdd').addEventListener('click',()=>dialog.showModal());
 document.querySelector('#addForm').addEventListener('submit',e=>{
   if(e.submitter?.value==='cancel')return;
   e.preventDefault();dialog.close();
