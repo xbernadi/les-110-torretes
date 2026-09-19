@@ -1,0 +1,50 @@
+[
+  {
+    "date": "04.01.2026",
+    "photo": "assets/ruta-torretes.png",
+    "comment": "Primera de l’any. Fred a les mans i Martorell despertant a sota.",
+    "pos": "50% 42%"
+  },
+  {
+    "date": "11.01.2026",
+    "photo": "assets/ruta-torretes.png",
+    "comment": "Boira baixa. La torre ha aparegut just al final.",
+    "pos": "33% 72%"
+  },
+  {
+    "date": "24.01.2026",
+    "photo": "assets/ruta-torretes.png",
+    "comment": "Pujada curta abans de dinar. Les cames ja recorden el camí.",
+    "pos": "68% 36%"
+  },
+  {
+    "date": "07.02.2026",
+    "photo": "assets/ruta-torretes.png",
+    "comment": "Sol d’hivern i silenci a la carena.",
+    "pos": "45% 64%"
+  },
+  {
+    "date": "18.02.2026",
+    "photo": "assets/ruta-torretes.png",
+    "comment": "Avui costava sortir. Per això compta el doble.",
+    "pos": "62% 52%"
+  },
+  {
+    "date": "05.03.2026",
+    "photo": "assets/ruta-torretes.png",
+    "comment": "Primera pujada amb llum de tarda.",
+    "pos": "18% 82%"
+  },
+  {
+    "date": "17.03.2026",
+    "photo": "assets/ruta-torretes.png",
+    "comment": "Vent fort al cim i baixada ràpida.",
+    "pos": "73% 61%"
+  },
+  {
+    "date": "29.03.2026",
+    "photo": "assets/ruta-torretes.png",
+    "comment": "El verd ja ha canviat. La primavera ha arribat.",
+    "pos": "40% 45%"
+  }
+]
